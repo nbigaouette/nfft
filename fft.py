@@ -81,10 +81,15 @@ def test_fft():
     #f  = 1.0 / T    # Frequency
     #o  = 2.0 * numpy.pi * f
 
-    # Angulare frequencies
-    o  = numpy.array([0.3, 0.35, 0.4, 0.6, 1.25])
-    f = o / (2.0 * numpy.pi)
+    # Frequencies
+    f = numpy.array([1.0, 5.0, 2.5])
     T = 1.0 / f
+    o  = 2.0 * numpy.pi * f
+
+    # Angulare frequencies
+    #o  = numpy.array([0.3, 0.35, 0.4, 0.6, 1.25])
+    #f = o / (2.0 * numpy.pi)
+    #T = 1.0 / f
 
     nt = 5000     # Nb of time steps
     tmax = nT * T.max()
@@ -127,14 +132,14 @@ def test_fft():
     plt.legend()
 
     sp2 = plt.subplot(212)
-    plt.plot(angular_frequencies, FTa / FTa.max(), '--xk', lw=2, label=r"|FFT|$^2$")
+    plt.plot(frequencies, FTa / FTa.max(), '--xk', lw=2, label=r"|FFT|$^2$")
     for i in xrange(len(o)):
-        plt.plot([ o[i],  o[i]], [0.9*FTa_min, 1.1],  '-' + colors[i%len(colors)], lw=2, label=r'$\omega = ' + str('%.4g' %  o[i]) + '$')
-        plt.plot([-o[i], -o[i]], [0.9*FTa_min, 1.1], '--' + colors[i%len(colors)], lw=2, label=r'$\omega = ' + str('%.4g' % -o[i]) + '$')
-    plt.xlabel(r"$\omega$ [time$^{-1}$]")
+        plt.plot([ f[i],  f[i]], [0.9*FTa_min, 1.1],  '-' + colors[i%len(colors)], lw=2, label=r'$f = ' + str('%.4g' %  f[i]) + '$')
+        plt.plot([-f[i], -f[i]], [0.9*FTa_min, 1.1], '--' + colors[i%len(colors)], lw=2, label=r'$f = ' + str('%.4g' % -f[i]) + '$')
+    plt.xlabel(r"frequencies [time$^{-1}$]")
     plt.ylabel(r"|FFT|$^2$")
     sp2.set_yscale('log')
-    sp2.set_xlim((-1.5*o.max(), 1.5*o.max()))
+    sp2.set_xlim((-1.5*f.max(), 1.5*f.max()))
     sp2.set_ylim((FTa_min, 1.1))
     plt.legend()
 

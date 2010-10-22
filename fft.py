@@ -93,13 +93,13 @@ def test_fft():
 
     nt = 5000     # Nb of time steps
     tmax = nT * T.max()
-    t = numpy.linspace(0.0, tmax, nt)
-    dt = t[1] - t[0]
+    time = numpy.linspace(0.0, tmax, nt)
+    dt = time[1] - time[0]
 
     # Build signal
     signal = numpy.zeros(nt, dtype=numpy.complex128)
     for i in xrange(len(T)):
-        signal += numpy.cos(o[i] * t) + 1.0j*numpy.sin(o[i] * t)
+        signal += numpy.cos(o[i] * time) + 1.0j*numpy.sin(o[i] * time)
 
     # Add noise
     noise_amplitude = 0.0
@@ -107,7 +107,7 @@ def test_fft():
     signal += (1.0 + 1.0j) * static
 
     # Calculate FFT
-    [FT, FTa, frequencies, angular_frequencies] = fft(t, signal)
+    [FT, FTa, frequencies, angular_frequencies] = fft(time, signal)
     FTa_min = (FTa / FTa.max()).min()
 
     print "Periods:", T
@@ -126,8 +126,8 @@ def test_fft():
     colors = ['b', 'r', 'm', 'c', 'g', 'y', 'k']
 
     sp1 = plt.subplot(211)
-    plt.plot(t, signal.real, lw=2, label='Real')
-    plt.plot(t, signal.imag, lw=2, label='Imaginary')
+    plt.plot(time, signal.real, lw=2, label='Real')
+    plt.plot(time, signal.imag, lw=2, label='Imaginary')
     plt.xlabel("t [time]")
     plt.legend()
 

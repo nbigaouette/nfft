@@ -20,13 +20,15 @@
 import numpy
 
 def fft(t, s, resize_NFFT = True, resize_NFFT_UP = False):
-    # t           : Time  array
-    # s           : Signal array
+    # t                 : Time  array
+    # s                 : Signal array
+    # resize_NFFT       : Resize signal and time array for optimal FFT calculation?
+    # resize_NFFT_UP    : If resize is to be done, increase the number of points (or decrease it)?
     # Returns:
-    # S           : TF(s)
-    # S_Amplitude : TF amplitude (|S|^2)
-    # f           : Frequency array (time^-1)
-    # omega       : Angular frequency
+    # S                 : TF(s)
+    # S_Amplitude       : TF amplitude (|S|^2)
+    # f                 : Frequency array (time^-1)
+    # omega             : Angular frequency
 
     # Sampling frequency (= dt^-1)
     dt = t[1] - t[0]

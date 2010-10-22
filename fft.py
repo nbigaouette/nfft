@@ -99,7 +99,11 @@ def test_fft():
     # Build signal
     signal = numpy.zeros(nt, dtype=numpy.complex128)
     for i in xrange(len(T)):
+        # Real signal: negative and positive frequencies
+        #signal += numpy.cos(o[i] * time)
+        # Complex signal: only positive frequencies
         signal += numpy.cos(o[i] * time) + 1.0j*numpy.sin(o[i] * time)
+    #
 
     # Add noise
     noise_amplitude = 0.0

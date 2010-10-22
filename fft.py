@@ -97,17 +97,17 @@ def test_fft():
     dt = t[1] - t[0]
 
     # Build signal
-    s = numpy.zeros(nt, dtype=numpy.complex128)
+    signal = numpy.zeros(nt, dtype=numpy.complex128)
     for i in xrange(len(T)):
-        s += numpy.cos(o[i] * t) + 1.0j*numpy.sin(o[i] * t)
+        signal += numpy.cos(o[i] * t) + 1.0j*numpy.sin(o[i] * t)
 
     # Add noise
     noise_amplitude = 0.0
     static = noise_amplitude * (numpy.random.random_sample((nt))-0.5)
-    s += (1.0 + 1.0j) * static
+    signal += (1.0 + 1.0j) * static
 
     # Calculate FFT
-    [FT, FTa, frequencies, angular_frequencies] = fft(t, s)
+    [FT, FTa, frequencies, angular_frequencies] = fft(t, signal)
     FTa_min = (FTa / FTa.max()).min()
 
     print "Periods:", T
@@ -126,8 +126,8 @@ def test_fft():
     colors = ['b', 'r', 'm', 'c', 'g', 'y', 'k']
 
     sp1 = plt.subplot(211)
-    plt.plot(t, s.real, lw=2, label='Real')
-    plt.plot(t, s.imag, lw=2, label='Imaginary')
+    plt.plot(t, signal.real, lw=2, label='Real')
+    plt.plot(t, signal.imag, lw=2, label='Imaginary')
     plt.xlabel("t [time]")
     plt.legend()
 

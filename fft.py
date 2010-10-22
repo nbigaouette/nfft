@@ -71,7 +71,7 @@ def fft(t, s, resize_NFFT = True, resize_NFFT_UP = False):
 
 
 def test_fft():
-    import pylab
+    import matplotlib.pyplot as plt
 
     # Number of periods
     nT = 10.0
@@ -117,28 +117,28 @@ def test_fft():
     print "Spectrum's angular frequency range: 2 pi / (nt dt) =", omega_range,     "(" + str(angular_frequencies[-1] - angular_frequencies[0]) + ")"
     print "Spectrum's angular frequency precision:",              omega_precision, "(" + str(angular_frequencies[1]  - angular_frequencies[0]) + ")"
 
-    fig = pylab.figure()
+    fig = plt.figure()
     colors = ['b', 'r', 'm', 'c', 'g', 'y', 'k']
 
-    sp1 = pylab.subplot(211)
-    pylab.plot(t, s.real, lw=2, label='Real')
-    pylab.plot(t, s.imag, lw=2, label='Imaginary')
-    pylab.xlabel("t [time]")
-    pylab.legend()
+    sp1 = plt.subplot(211)
+    plt.plot(t, s.real, lw=2, label='Real')
+    plt.plot(t, s.imag, lw=2, label='Imaginary')
+    plt.xlabel("t [time]")
+    plt.legend()
 
-    sp2 = pylab.subplot(212)
-    pylab.plot(angular_frequencies, FTa / FTa.max(), '--xk', lw=2, label=r"|FFT|$^2$")
+    sp2 = plt.subplot(212)
+    plt.plot(angular_frequencies, FTa / FTa.max(), '--xk', lw=2, label=r"|FFT|$^2$")
     for i in xrange(len(o)):
-        pylab.plot([ o[i],  o[i]], [0.9*FTa_min, 1.1],  '-'  + colors[i%len(colors)], lw=2, label=r'$\omega = ' + str('%.4g' %  o[i]) + '$')
-        pylab.plot([-o[i], -o[i]], [0.9*FTa_min, 1.1], '--' + colors[i%len(colors)],  lw=2, label=r'$\omega = ' + str('%.4g' % -o[i]) + '$')
-    pylab.xlabel(r"$\omega$ [time$^{-1}$]")
-    pylab.ylabel(r"|FFT|$^2$")
+        plt.plot([ o[i],  o[i]], [0.9*FTa_min, 1.1],  '-'  + colors[i%len(colors)], lw=2, label=r'$\omega = ' + str('%.4g' %  o[i]) + '$')
+        plt.plot([-o[i], -o[i]], [0.9*FTa_min, 1.1], '--' + colors[i%len(colors)],  lw=2, label=r'$\omega = ' + str('%.4g' % -o[i]) + '$')
+    plt.xlabel(r"$\omega$ [time$^{-1}$]")
+    plt.ylabel(r"|FFT|$^2$")
     sp2.set_yscale('log')
     sp2.set_xlim((-1.5*o.max(), 1.5*o.max()))
     sp2.set_ylim((FTa_min, 1.1))
-    pylab.legend()
+    plt.legend()
 
-    pylab.show()
+    plt.show()
 #
 
 if __name__ == "__main__":

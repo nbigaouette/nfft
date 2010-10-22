@@ -25,3 +25,4 @@ import fft
 [...]
 [FT, FTa, frequencies, angular_frequencies] = fft(time, signal)
 
+License: GPL v3

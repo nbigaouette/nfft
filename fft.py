@@ -129,8 +129,8 @@ def test_fft():
     sp2 = plt.subplot(212)
     plt.plot(angular_frequencies, FTa / FTa.max(), '--xk', lw=2, label=r"|FFT|$^2$")
     for i in xrange(len(o)):
-        plt.plot([ o[i],  o[i]], [0.9*FTa_min, 1.1],  '-'  + colors[i%len(colors)], lw=2, label=r'$\omega = ' + str('%.4g' %  o[i]) + '$')
-        plt.plot([-o[i], -o[i]], [0.9*FTa_min, 1.1], '--' + colors[i%len(colors)],  lw=2, label=r'$\omega = ' + str('%.4g' % -o[i]) + '$')
+        plt.plot([ o[i],  o[i]], [0.9*FTa_min, 1.1],  '-' + colors[i%len(colors)], lw=2, label=r'$\omega = ' + str('%.4g' %  o[i]) + '$')
+        plt.plot([-o[i], -o[i]], [0.9*FTa_min, 1.1], '--' + colors[i%len(colors)], lw=2, label=r'$\omega = ' + str('%.4g' % -o[i]) + '$')
     plt.xlabel(r"$\omega$ [time$^{-1}$]")
     plt.ylabel(r"|FFT|$^2$")
     sp2.set_yscale('log')

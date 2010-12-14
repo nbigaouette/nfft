@@ -114,9 +114,9 @@ def test_fft():
     [FT, FTa, frequencies, angular_frequencies] = fft(time, signal)
     FTa_min = (FTa / FTa.max()).min()
 
-    print "Periods:", T
-    print "Frequencies:", f
-    print "Angular Frequencies:", o
+    print "Periods: T =", T
+    print "Frequencies: f =", f
+    print "Angular Frequencies: ω =", o
 
     print "Spectrum's frequency range given by number of points."
     print "Spectrum's frequency precision given by duration."

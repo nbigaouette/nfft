@@ -125,6 +125,8 @@ def test_fft():
     omega_precision = omega_range / nt
     print "Spectrum's angular frequency range:     2 pi / (dt)    =", omega_range,     "(" + str(angular_frequencies[-1] - angular_frequencies[0]) + ")"
     print "Spectrum's angular frequency precision: 2 pi / (nt dt) =", omega_precision, "(" + str(angular_frequencies[1]  - angular_frequencies[0]) + ")"
+    print "Spectrum's frequency range:     1 / (dt)    =", omega_range/(2.0*numpy.pi),     "(" + str((angular_frequencies[-1] - angular_frequencies[0])/(2.0*numpy.pi)) + ")"
+    print "Spectrum's frequency precision: 1 / (nt dt) =", omega_precision/(2.0*numpy.pi), "(" + str((angular_frequencies[1]  - angular_frequencies[0])/(2.0*numpy.pi)) + ")"
 
     fig = plt.figure()
     colors = ['b', 'r', 'm', 'c', 'g', 'y', 'k']

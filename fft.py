@@ -111,7 +111,7 @@ def test_fft():
     signal += (1.0 + 1.0j) * static
 
     # Calculate FFT
-    [FT, FTa, frequencies, angular_frequencies] = fft(time, signal)
+    [FT, FTa, frequencies, angular_frequencies] = fft(time, signal, resize_NFFT = False)
     FTa_min = (FTa / FTa.max()).min()
 
     print "Periods: T =", T

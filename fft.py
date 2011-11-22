@@ -134,6 +134,7 @@ def test_fft():
     plt.plot(time, signal.real, lw=2, label='Real')
     plt.plot(time, signal.imag, lw=2, label='Imaginary')
     plt.xlabel("t [time]")
+    plt.ylabel("Signal [arb. unit]")
     plt.legend()
 
     sp2 = plt.subplot(212)

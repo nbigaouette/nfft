@@ -140,8 +140,8 @@ def test_fft():
     sp2 = plt.subplot(212)
     plt.plot(frequencies, FTa / FTa.max(), '--xk', lw=2, label=r"|FFT|$^2$")
     for i in xrange(len(o)):
-        plt.plot([ f[i],  f[i]], [0.9*FTa_min, 1.1],  '-' + colors[i%len(colors)], lw=2, label=r'$f = ' + str('%.4g' %  f[i]) + '$')
-        plt.plot([-f[i], -f[i]], [0.9*FTa_min, 1.1], '--' + colors[i%len(colors)], lw=2, label=r'$f = ' + str('%.4g' % -f[i]) + '$')
+        plt.axvline( f[i],  linestyle = '-',  color = colors[i%len(colors)], linewidth=2, label=r'$f = ' + str('%.4g' %  f[i]) + '$')
+        plt.axvline(-f[i],  linestyle = '--', color = colors[i%len(colors)], linewidth=2, label=r'$f = ' + str('%.4g' % -f[i]) + '$')
     plt.xlabel(r"frequencies [time$^{-1}$]")
     plt.ylabel(r"|FFT|$^2$")
     sp2.set_yscale('log')

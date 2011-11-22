@@ -112,7 +112,6 @@ def test_fft():
 
     # Calculate FFT
     [FT, FTa, frequencies, angular_frequencies] = fft(time, signal, resize_NFFT = False)
-    FTa_min = (FTa / FTa.max()).min()
 
     print "Periods: T =", T
     print "Frequencies: f =", f
@@ -146,7 +145,7 @@ def test_fft():
     plt.ylabel(r"|FFT|$^2$")
     sp2.set_yscale('log')
     sp2.set_xlim((-1.5*f.max(), 1.5*f.max()))
-    sp2.set_ylim((FTa_min, 1.1))
+    sp2.set_ylim((1.0e-12, 1.1))
     plt.legend()
 
     plt.show()

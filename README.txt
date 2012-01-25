@@ -23,6 +23,6 @@ $ python ./fft.py
 Usage:
 import fft
 [...]
-[FT, FTa, frequencies, angular_frequencies] = fft(time, signal)
+[FT, FTa, frequencies, angular_frequencies] = fft.fft(time, signal)
 
 License: GPL v3

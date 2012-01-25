@@ -69,6 +69,10 @@ def fft(t, s, resize_NFFT = True, resize_NFFT_UP = False):
     return [S, S_Amplitude, f, omega]
 #
 
+def ifft(f, S):
+     s = numpy.fft.ifft(numpy.fft.fftshift(S))
+     return s
+
 
 def test_fft():
     import matplotlib.pyplot as plt
